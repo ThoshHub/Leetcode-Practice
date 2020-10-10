@@ -1,12 +1,35 @@
 def sudoku2(grid):
-    # print out 1, 4, 7
-	for i, sub in enumerate(grid):
-		print(sub[0])
+	length = len(grid[0])
 	
-	return ''
+	# check vertically 
+	for j in range (0, length):
+		nodupes = {}
+		for i, row in enumerate(grid):
+			if row[j] in nodupes:
+				return False # there is a duplicate in a column
+			else:
+				nodupes[row[j]] = 1
+	
+	#check horizontally
+	for row in grid:
+		nodupes = {}
+		for i, num in enumerate(row):
+			if num in nodupes:
+				return False # there id a duplicate in a row 
+			else:
+				nodupes[num] = 1     
 
-grid = [[1, 2, 3],
-		[4, 5, 6],
-		[7, 8, 9]]
+	return True 
+
+
+grid = [[".",".",".","1","4",".",".","2","."], 
+		[".",".","6",".",".",".",".",".","."], 
+		[".",".",".",".",".",".",".",".","."], 
+		[".",".","1",".",".",".",".",".","."], 
+		[".","6","7",".",".",".",".",".","9"], 
+		[".",".",".",".",".",".","8","1","."], 
+		[".","3",".",".",".",".",".",".","6"], 
+		[".",".",".",".",".","7",".",".","."], 
+		[".",".",".","5",".",".",".","7","."]]
 
 sudoku2(grid)
