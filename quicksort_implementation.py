@@ -13,8 +13,26 @@ def qsort(s):
             return s # return the original
     else: # if array is greater than length 2, then recurse
         pivdex = randrange(len(s)) # pick a random index between 0 and array length
+        bef = []
+        aft = []
+        skip = 0
 
-        # TODO
+        for a in s:
+            if a < s[pivdex]:
+                bef.append(a)
+            elif a > s[pivdex]:
+                aft.append(a)
+            else:
+                if skip == 0: # first time coming across it, skip it
+                    skip += 1
+                else:         # second time, add it
+                    bef.append(a)
+        
+        bef = qsort(bef)
+        aft = qsort(aft)
+        bef.append(s[pivdex])
+
+        return bef + aft
 
 a = []
 b = [1]
@@ -22,5 +40,6 @@ c = [2, 1]
 d = [3, 5, 2, 43, 12, 4, 5, 7, 88, 432, 23]
 e = [5, 4, 3, 2, 1]
 f = [3, 2, 1]
+g = [5, 4, 3, 2, 1, 5, 5]
 
-print(qsort(f))
+print(qsort(d))
