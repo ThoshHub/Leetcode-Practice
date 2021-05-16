@@ -13,30 +13,8 @@ def qsort(s):
             return s # return the original
     else: # if array is greater than length 2, then recurse
         pivdex = randrange(len(s)) # pick a random index between 0 and array length
-        piv = s[pivdex] # get value of that index
 
-        bef = [] # initialize array of all numbers smaller than piv
-        aft = [] # initialize array of all numbers larger than piv
-
-        index = 0
-        while index < len(s): # loop through array
-            if s[index] == pivdex: # if you hit that index, then skip it
-                index += 1
-            else: # otherwise, check if the value is bigger or smaller than piv
-                if s[index] < piv:
-                    bef.append(s[index])
-                    index += 1
-                else:
-                    aft.append(s[index])
-                    index += 1
-
-        # take everything before the array and put it into new array "a"
-        bef = qsort(bef) # recursively sort subarrays 
-        aft = qsort(aft) 
-
-        bef.append(piv) # append the middle element
-
-        return bef + aft # return the combined array
+        # TODO
 
 a = []
 b = [1]
