@@ -1,5 +1,5 @@
 # Given two binary strings a and b, return their sum as a binary string
-import numpy as np
+# import numpy as np
 
 # def bin_to_dec(a):
 #     sum = 0
