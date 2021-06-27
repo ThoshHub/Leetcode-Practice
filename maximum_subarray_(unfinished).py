@@ -14,7 +14,12 @@ def max_subarray(arr):
     pj = 1
 
     while pi < arr_size - 1 and pj < arr_size - 1:
-        sum = sum_array(x for x in arr[pi:pj]) # set sum equal to whatever is between the two pointers
+        
+        temp_sum = sum_array(x for x in arr[pi:pj]) # set sum equal to whatever is between the two pointers
+        if sum > temp_sum:
+            sum = temp_sum
+
+        pi += 1
 
     return 0
 
