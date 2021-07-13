@@ -2,7 +2,7 @@
 
 def insertInbetween(first, intermediate): # returns array
     # a, bc -> abc, bac, bca
-    
+
     result = []
     for i, obj in enumerate(intermediate):
         result.append(intermediate[:i] + first + intermediate[i:])
